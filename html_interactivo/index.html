@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA ANTIFRAUDE - TERMINAL SECRETA</title>
+    <!-- Enlace a tu archivo CSS separado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Navegación Retro -->
+        <nav class="retro-nav">
+            <button class="nav-btn active" onclick="mostrarSeccion(event, 'inicio')">INICIO</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm1')">M1. PROBABILIDAD</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm2')">M2. MOMENTOS</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm3')">M3. INDEPENDENCIA</button>
+        </nav>
+
+        <!-- HEADER DEL SISTEMA -->
+        <header class="retro-header">
+            <div class="header-info">
+                <h1 class="titulo-principal">> SYS.ANTIFRAUDE.V2<span class="blinking-cursor">_</span></h1>
+                <p class="subtitulo">> AUTORIZACIÓN: KATHERINE SANTISTEBAN [ID: 1113-19-1584]</p>
+                <p class="subtitulo">> ESTADO DE RED: <span class="estado-online">SEGURO / EN LÍNEA</span></p>
+            </div>
+            <div class="header-stats">
+                DATASET_SIZE: 284,807 REC.<br>
+                FRAUD_RATE: 0.173%
+            </div>
+        </header>
+
+        <main class="content-area">
+            <!-- Sección Inicio -->
+            <section id="inicio" class="seccion-activa">
+                <h1 class="titulo-retro">SISTEMA ANTIFRAUDE</h1>
+                <div class="modulo-contenedor">
+                    <h2>ESTADO DEL SISTEMA: ONLINE</h2>
+                    <p>> Base de datos cargada: Credit Card Fraud Detection.</p>
+                    <p>> Total de registros procesados: 284,807.</p>
+                    <p>> Este es un dataset real (no sintetico) recolectado de transacciones de tarjetahabientes en Europa. Esta sumamente anonimizado mediante componentes principales (PCA) por lo que las ubicaciones exactas no son visibles, pero es el mejor para medir tasas de efectividad pura.</p>
+                    <div class="terminal-output">
+                        > Forma del dataset: (284807, 31)<br>
+                        > Valores nulos totales: 0<br>
+                        Distribución de clases:<br>
+                        0   284315<br>
+                        1      492<br>
+                        > Porcentaje de fraude: 0.173%
+                    </div>
+                    <div class="imagen-placeholder">
+                        <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/distribucion.png">
+                    </div>
+                    <p class="alerta-fraude">ADVERTENCIA: Las variables V1-V28 han sido transformadas mediante PCA por protocolos de seguridad.</p>
+                    <div class="imagen-placeholder">
+                        <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/fraudulentas.png">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Módulo 1 -->
+            <section id="m1" class="seccion-oculta">
+                <h1 class="titulo-retro">M1: PROBABILIDAD Y BAYES</h1>
+                <div class="modulo-contenedor">
+                    <h2>PROBABILIDAD</h2>
+                    <ul>
+                        <li>> Probabilidad marginal: 0.001727 (0.173%)</li>
+                        <li>> P(Fraude|Monto Alto > 100): 0.002301 (0.230%)</li>
+                        <li>> P(Fraude|Franja Horaria == 2): 0.017127 (1.713%)</li>
+                    </ul>
+                    <h2>PARADOJA DE LA TASA BASE</h2>
+                    <ul>
+                        <li>> Sensibilidad del modelo: 85%</li>
+                        <li>> Especificidad del modelo: 95%</li>
+                        <li>> Tasa base real de fraude: 0.173%</li>
+                        <li>> Teorema de Bayes (Fraude|Alerta): 0.0286 (2.86%)</li>
+                    </ul>
+                    <div class="terminal-output">
+                        > EXPLICACION DE LA PARADOJA DE LA TASA BASE:<br>
+                        A pesar de tener un modelo con 95% de especificidad y 85% de sensibilidad, si salta una alerta, la probabilidad real de que sea un fraude es extremadamente baja (0.173%). La inmensa mayoria de las transacciones son legitimas, por lo que ese pequeño 5% de falsos positivos inunda el sistema de alertas falsas.
+                    </div>
+                    <p class="alerta-fraude">ALERTA DEL SISTEMA: Debido a los falsos positivos, si salta una alerta, la probabilidad real de fraude es únicamente del 2.85%.</p>
+                </div>
+            </section>
+
+            <!-- Sección Módulo 2 -->
+            <section id="m2" class="seccion-oculta">
+                <h1 class="titulo-retro">M2: VARIABLES ALEATORIAS</h1>
+                <div class="modulo-contenedor">
+                    <h2>ANÁLISIS DE MONTOS <br>(FRAUDE - 1)</h2>
+                    <ul>
+                        <li>> Esperanza empírica: &euro;122.21</li>
+                        <li>> Varianza: 65,886.31</li>
+                        <li>> Asimetría (Skewness): 3.7545</li>
+                        <li>> Curtosis: 17.7457</li>
+                    </ul>
+                    <h2>(LEGITIMA - 0)</h2>
+                    <ul>
+                        <li>> Esperanza empírica: &euro;88.29</li>
+                        <li>> Varianza: 62,552.56</li>
+                        <li>> Asimetría (Skewness): 17.0031</li>
+                        <li>> Curtosis: 846.7370</li>
+                    </ul>
+                    <h2>AJUSTE DE DISTRIBUCION Y PERDIDA ESPERADA</h2>
+                    <p>> Distribución ajustada: Log-Normal</p>
+                    <p class="alerta-fraude">PÉRDIDA ESPERADA (E[X]): &euro;369.73</p>
+                    
+                    <!-- Espacio donde luego incrustarás la imagen de Python -->
+                    <div class="imagen-placeholder">
+                        <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/output.png">
+                    </div>
+                </div>
+            </section>
+            <section id="m3" class="seccion-oculta">
+                <h1 class="titulo-retro">M3: INDEPENDENCIA Y CORRELACION</h1>
+                <div class="modulo-contenedor">
+                    <h2>PRUEBA CHI-CUADRADO DE INDEPENDENCIA</h2>
+                    <ul>
+                        <li>> Estadistico Chi-Cuadrado: 674.4434</li>
+                        <li>> Valor-P: 1.0660e-127</li>
+                    </ul>
+                    <p class="alerta-fraude">Conclusion: Rechazamos la hipotesis nula. Existe dependencia estadistica entre la hora del dia y la probabilidad de fraude.</p>
+                    <h2>MATRICES DE CORRELACION</h2>
+                    <div class="terminal-output">Top 5 variables mas correlacionadas con fraude (Pearson):<br>
+                    V17    0.299371<br>
+                    V14    0.205613<br>
+                    V12    0.160534<br>
+                    V16    0.158727<br>
+                    V10    0.145086<br>
+                    </div>
+                    <div class="imagen-placeholder">
+                        <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/pearson.png">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Enlace a tu archivo JavaScript separado -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* Importar fuentes estilo terminal y pixel retro */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=VT323&display=swap');
+
+/* Variables de paleta de colores */
+:root {
+    --bg-main: #31112C;     /* Dark Orchid */
+    --accent: #F2A07B;      /* Sunset Peach */
+    --text-main: #FBDCC4;   /* Vanilla Peach */
+    --alert: #7D0633;       /* Garnet Red */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Navegación y Botones (Replicando tu imagen) */
+.retro-nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.nav-btn {
+    background-color: var(--alert);
+    color: var(--text-main);
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    padding: 10px 25px;
+    border: 2px solid var(--accent);
+    /* Sombra rígida que le da el toque retro */
+    box-shadow: 4px 4px 0px var(--accent);
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Efecto al hacer clic o al estar activo */
+.nav-btn:active, .nav-btn.active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--accent);
+    background-color: var(--accent);
+    color: var(--bg-main);
+}
+
+/* Tipografía de títulos */
+h1, h2, h3, .titulo-retro {
+    font-family: 'VT323', monospace;
+    color: var(--accent);
+    font-weight: normal;
+    margin-top: 0;
+}
+
+.titulo-retro {
+    font-size: 3rem;
+    border-bottom: 2px dashed var(--accent);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Estructura de las "Ventanas" */
+.modulo-contenedor {
+    border: 3px solid var(--accent);
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 0px var(--alert);
+}
+
+.modulo-contenedor ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.8;
+}
+
+/* Alertas simulando advertencias del sistema */
+.alerta-fraude {
+    background-color: var(--alert);
+    color: var(--text-main);
+    border: 2px solid var(--text-main);
+    padding: 15px;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+}
+
+.imagen-placeholder {
+    margin-top: 25px;
+    border: 2px dashed var(--text-main);
+    padding: 7px;
+    text-align: left;
+    opacity: 0.8;
+}
+
+/* Lógica visual para JavaScript */
+.seccion-oculta {
+    display: none;
+}
+
+.seccion-activa {
+    display: block;
+}
+
+/* =========================================
+   ESTILOS DEL ENCABEZADO (HEADER)
+   ========================================= */
+.retro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid var(--accent);
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 0px var(--alert);
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.titulo-principal {
+    font-family: 'VT323', monospace;
+    color: var(--accent);
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+/* Efecto de cursor parpadeando como en MS-DOS o Ubuntu */
+.blinking-cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.subtitulo {
+    color: rgba(251, 220, 196, 0.8); /* Vanilla Peach con opacidad */
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.estado-online {
+    color: #4ade80; /* Verde terminal */
+    font-weight: bold;
+}
+
+.header-stats {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--accent);
+    border: 2px solid var(--alert);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: right;
+    line-height: 1.2;
+}
+
+/* Ajuste para que se vea bien si abres la ventana a la mitad en VS Code */
+@media (max-width: 768px) {
+    .retro-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .header-stats {
+        align-self: flex-start;
+    }
+}
+
+/* =========================================
+   CAJAS DE RESULTADOS TIPO JUPYTER/TERMINAL
+   ========================================= */
+.terminal-output {
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    color: var(--accent); /* Sunset Peach */
+    border: 2px solid var(--alert); /* Garnet Red */
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro estilo consola */
+    text-align: left; /* Alineado a la izquierda como Jupyter */
+    line-height: 1.4;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
