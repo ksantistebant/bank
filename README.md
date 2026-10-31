@@ -37,7 +37,7 @@
         E --> E2[📄 script.js]:::file
         E --> E3[📄 style.css]:::file
         F --> F1[📄 datos_muestra.json]:::file
-
+```
 ## 🗺️ Roadmap del Proyecto
 
 ```mermaid
