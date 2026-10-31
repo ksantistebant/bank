@@ -21,14 +21,18 @@ body {
 
 .terminal-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 /* Navegación y Botones (Replicando tu imagen) */
 .retro-nav {
     display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
+    flex-wrap: wrap; /* Permite que bajen de línea si la pantalla es pequeña */
+    gap: 10px; /* El espacio exacto entre cada botón */
+    justify-content: flex-start; /* CRÍTICO: Empuja todos los botones contra la pared izquierda */
+    padding-left: 0; /* Elimina sangrías automáticas si usaste etiquetas de lista */
+    margin-left: 0; /* Asegura que no haya margen exterior izquierdo */
+    margin-bottom: 20px;
 }
 
 .nav-btn {
@@ -186,12 +190,20 @@ h1, h2, h3, .titulo-retro {
 .terminal-output {
     font-family: 'VT323', monospace;
     font-size: 1.4rem;
-    color: var(--accent); /* Sunset Peach */
-    border: 2px solid var(--alert); /* Garnet Red */
+    color: var(--accent); 
+    border: 2px solid var(--alert); 
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro estilo consola */
-    text-align: left; /* Alineado a la izquierda como Jupyter */
+    background-color: rgba(0, 0, 0, 0.5); 
+    text-align: left; 
     line-height: 1.4;
     margin-top: 15px;
     margin-bottom: 15px;
+    overflow-x: auto; /* Agrega la barra de desplazamiento horizontal si es necesario */
+}
+
+/* Evita que el <pre> agregue márgenes invisibles que afecten la caja */
+.terminal-output pre {
+    font-family: monospace;
+    font-size: 1.4rem;
+    margin: 0;
 }

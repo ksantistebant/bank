@@ -15,6 +15,9 @@
             <button class="nav-btn" onclick="mostrarSeccion(event, 'm1')">M1. PROBABILIDAD</button>
             <button class="nav-btn" onclick="mostrarSeccion(event, 'm2')">M2. MOMENTOS</button>
             <button class="nav-btn" onclick="mostrarSeccion(event, 'm3')">M3. INDEPENDENCIA</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm4')">M4. REGRESIÓN</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm5')">M5. SIMILITUD</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm6')">M6. REDUCCIÓN</button>
         </nav>
 
         <!-- HEADER DEL SISTEMA -->
@@ -110,6 +113,7 @@
                     </div>
                 </div>
             </section>
+            <!--seccion modulo 3 -->
             <section id="m3" class="seccion-oculta">
                 <h1 class="titulo-retro">M3: INDEPENDENCIA Y CORRELACION</h1>
                 <div class="modulo-contenedor">
@@ -129,6 +133,121 @@
                     </div>
                     <div class="imagen-placeholder">
                         <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/pearson.png">
+                    </div>
+                </div>
+            </section>
+            <!-- Sección Módulo 4 -->
+            <section id="m4" class="seccion-oculta">
+                <h1 class="titulo-retro">M4: REGRESIÓN Y POISSON</h1>
+                <div class="modulo-contenedor">
+                    <h2>RENDIMIENTO DEL MODELO DE ML</h2>
+                    
+                    <div class="terminal-output">
+                        > EVALUANDO REGRESIÓN LOGÍSTICA (CLASS_WEIGHT='BALANCED')...<br><br>
+                        [OUT] MATRIZ DE CONFUSIÓN:<br>
+                        Verdaderos Negativos (Legítimas): 55,423<br>
+                        Falsos Positivos (Alertas falsas): 1,441<br>
+                        Falsos Negativos (Fraudes omitidos): 8<br>
+                        Verdaderos Positivos (Fraudes detectados): 90
+                    </div>
+                    <h2>Resultados Generalizados del Modelo de Regresion Lineal</h2>
+                    <ul>
+                        <li>> Dep. Variable: ConteoFraudes</li>
+                        <li>> Model: GLM</li>
+                        <li>> Model Family: Poisson</li>
+                        <li>> Link Function: Log</li>
+                        <li>> Method: IRLS</li>
+                        <li>> Date: Thu, 29 Oct 2026</li>
+                        <li>> Time: 19:47:19</li>
+                        <li>> No. Iterations: 4</li>
+                        <li>> Covariance Type: nonrobust</li>
+                        <li>> No. Observations: 24</li>
+                        <li>> Df Residuals: 22</li>
+                        <li>> Df Model: 1</li>
+                        <li>> Scale: 1.0000</li>
+                        <li>> Log-Likelihood: -134.60</li>
+                        <li>> Deviance: 156.11</li>
+                        <li>> Pearson chi2: 184.</li>
+                        <li>> Pseudo R-squ. (CS): 0.009121</li>
+                    </ul>
+
+                    <p class="alerta-fraude">ANÁLISIS: El modelo es altamente sensible (atrapó 90 de 98 fraudes), pero generó 1,441 bloqueos a clientes legítimos, confirmando empíricamente la Paradoja de la Tasa Base del M1.</p>
+                    
+                    <br><h2>ANÁLISIS DE FRECUENCIA DE ATAQUES</h2>
+                    
+                    <div class="terminal-output">
+                        > EJECUTANDO GLM (FAMILIA: POISSON) PARA VARIABLE 'HOUR'...<br>
+                        [OUT]: Valor-P = 0.639
+                    </div>
+                    
+                    <div class="terminal-output">
+                        > EJECUTANDO GLM (FAMILIA: POISSON) PARA VARIABLE 'HOUR'...<br><br>
+<pre>
+              coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------
+const       2.9851      0.088     33.826      0.000       2.812       3.158
+Hour        0.0031      0.007      0.469      0.639      -0.010       0.016
+===========================================================================
+</pre>
+                    </div>
+
+                    <p>> CONCLUSIÓN: P > 0.05. La hora lineal no predice el volumen de fraudes. Los estafadores atacan en ráfagas impredecibles, no de forma constante.</p>
+
+                    <div class="imagen-placeholder">
+                        <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/regresion.png">
+                    </div>
+                </div>
+            </section>
+            <!-- Sección Módulo 5 -->
+            <section id="m5" class="seccion-oculta">
+                <h1 class="titulo-retro">M5: SIMILITUD VECTORIAL</h1>
+                <div class="modulo-contenedor">
+                    <h2>GEOMETRÍA Y CÁLCULO DE DISTANCIAS</h2>
+                    <p>> Módulo externo <span class="estado-online">distancias.py</span> importado con éxito.</p>
+                    <p>> Pre-procesamiento: Escalado Estándar aplicado (media=0, varianza=1) para eliminar sesgos de magnitud en variables dimensionales.</p>
+                    
+                    <div class="terminal-output">
+                        > EVALUANDO TRANSACCIÓN LEGÍTIMA CONTRA PERFIL FRAUDE...<br>
+                        [OUT] Distancia Euclidiana: 17.6231<br>
+                        [OUT] Similitud Coseno: 0.0089 (Ortogonal/No relacionada)
+                    </div>
+
+                    <div class="terminal-output">
+                        > EVALUANDO TRANSACCIÓN FRAUDULENTA CONTRA PERFIL FRAUDE...<br>
+                        [OUT] Distancia Euclidiana: 9.6960<br>
+                        [OUT] Similitud Coseno: 0.9117 (Altamente correlacionada)
+                    </div>
+
+                    <p class="alerta-fraude">CONCLUSIÓN: Los vectores de fraude apuntan en la misma dirección matemática (Similitud > 0.90). El sesgo de escala fue neutralizado exitosamente.</p>
+                    
+                    <br><h2>MOTOR JAVASCRIPT (SIMULACIÓN EN TIEMPO REAL)</h2>
+                    <p>> Inicializando módulo analítico en el navegador...</p>
+                    
+                    <!-- Botón para ejecutar la función de tu script.js -->
+                    <button class="nav-btn" style="margin-top: 15px;" onclick="ejecutarSimulacionJS()">EJECUTAR ANÁLISIS JS</button>
+                    
+                    <div id="resultado-js" class="terminal-output" style="display: none; margin-top: 20px;">
+                        <!-- Aquí se inyectará el resultado usando JavaScript -->
+                    </div>
+                </div>
+            </section>
+            <!-- Sección Módulo 6 -->
+            <section id="m6" class="seccion-oculta">
+                <h1 class="titulo-retro">M6: REDUCCIÓN DE DIMENSIONES</h1>
+                <div class="modulo-contenedor">
+                    <h2>ANÁLISIS DE COMPONENTES PRINCIPALES (PCA 2D)</h2>
+                    
+                    <div class="terminal-output">
+                        > COMPRIMIENDO ESPACIO VECTORIAL (28D -> 2D)...<br>
+                        [OUT] Varianza explicada por C1: 6.75%<br>
+                        [OUT] Varianza explicada por C2: 3.45%<br>
+                        [OUT] Varianza total conservada: 10.20%
+                    </div>
+
+                    <p class="alerta-fraude">NOTA DEL SISTEMA: La baja varianza conservada (10.20%) confirma la ortogonalidad estricta de las variables V1-V28 originales comprobada en el Módulo 3. A pesar de la compresión masiva, la frontera de fraude sigue siendo detectable.</p>
+
+                    <div class="imagen-placeholder">
+                        <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/reduccion.png">
                     </div>
                 </div>
             </section>
