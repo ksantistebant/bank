@@ -37,3 +37,26 @@
         E --> E2[📄 script.js]:::file
         E --> E3[📄 style.css]:::file
         F --> F1[📄 datos_muestra.json]:::file
+
+## 🗺️ Roadmap del Proyecto
+
+```mermaid
+flowchart TD
+    subgraph V1 [AVANCE 1: FUNDAMENTOS]
+        m1(M1: Probabilidad y Tasa Base)
+        m2(M2: Momentos Estadísticos)
+    end
+    
+    subgraph V2 [AVANCE 2: MODELADO ML]
+        m3(M3: Independencia de Variables)
+        m4(M4: Regresión Logística y Poisson)
+    end
+    
+    subgraph V3 [AVANCE 3: OPTIMIZACIÓN]
+        m5(M5: Similitud y Distancia Vectorial)
+        m6(M6: Reducción PCA a 2D)
+        m8(M8 & M9: Sesgos y Método Simplex)
+    end
+
+    V1 ==>|Update| V2
+    V2 ==>|Update| V3
