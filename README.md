@@ -57,8 +57,13 @@ flowchart TD
         m6(M6: Reducción PCA a 2D)
         m8(M8 & M9: Sesgos y Método Simplex)
     end
+    subgraph V4 [AVANCE 4: SIMULACIÓN E INTEGRACIÓN WFM]
+        m7(M7: Modelos de Simulación)
+        wfm(WFM: Capacity Planning)
+        m10(M10 & M11: Optimización Avanzada)
+    end
 
     V1 ==>|Update| V2
     V2 ==>|Update| V3
-
+    V3 ==>|Update| V4
 ```
