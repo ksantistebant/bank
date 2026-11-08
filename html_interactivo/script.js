@@ -75,3 +75,37 @@ function ejecutarSimulacionJS() {
 > Similitud Coseno calculada: ${sim.toFixed(4)}<br><br>
 <span style="color: #7D0633; font-weight: bold;">> ESTADO: TRANSACCIÓN BLOQUEADA (SIMILITUD > 95%)</span>`;
 }
+
+// ==========================================
+// MÓDULO 7: SIMULADOR DE MARKOV (FRONTEND)
+// ==========================================
+function ejecutarMarkovJS() {
+    const cajaResultado = document.getElementById('resultado-m7-js');
+    cajaResultado.style.display = 'block';
+    cajaResultado.innerHTML = `> INICIANDO MOTOR DE MARKOV (5 PASOS)...<br><br>`;
+    
+    // Matriz de mensajes de estado
+    const pasos = [
+        "PASO 1: Transacción ingresa en estado SOSPECHOSO...",
+        "PASO 2: Verificando historial de cuenta (Transición en proceso)...",
+        "PASO 3: Anomalía de ubicación confirmada por el sistema...",
+        "PASO 4: Escalando caso a revisión manual de analista...",
+        "PASO 5: ESTADO ABSORBENTE ALCANZADO."
+    ];
+    
+    let htmlContent = cajaResultado.innerHTML;
+    let i = 0;
+    
+    // Simulamos un retraso de procesamiento estilo terminal retro
+    let intervalo = setInterval(() => {
+        if(i < pasos.length) {
+            htmlContent += `> ${pasos[i]}<br>`;
+            cajaResultado.innerHTML = htmlContent;
+            i++;
+        } else {
+            htmlContent += `<br><span style="color: #7D0633; font-weight: bold;">[RESULTADO] CUENTA BLOQUEADA DEFINITIVAMENTE</span>`;
+            cajaResultado.innerHTML = htmlContent;
+            clearInterval(intervalo);
+        }
+    }, 800); // Retraso de 800 milisegundos por cada línea
+}

@@ -18,6 +18,9 @@
             <button class="nav-btn" onclick="mostrarSeccion(event, 'm4')">M4. REGRESIÓN</button>
             <button class="nav-btn" onclick="mostrarSeccion(event, 'm5')">M5. SIMILITUD</button>
             <button class="nav-btn" onclick="mostrarSeccion(event, 'm6')">M6. REDUCCIÓN</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm7')">M7. SIMULACIÓN</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'wfm')">WFM CONTEXTO</button>
+            <button class="nav-btn" onclick="mostrarSeccion(event, 'm10')">M10-M11. OPT. AVANZADA</button>
         </nav>
 
         <!-- HEADER DEL SISTEMA -->
@@ -249,6 +252,78 @@ Hour        0.0031      0.007      0.469      0.639      -0.010       0.016
                     <div class="imagen-placeholder">
                         <img src="/home/kat/Documentos/programacion_avanzada/bank/html_interactivo/reduccion.png">
                     </div>
+                </div>
+            </section>
+            <!-- Sección Módulo 7 -->
+            <section id="m7" class="seccion-oculta">
+                <h1 class="titulo-retro">M7: MODELOS DE SIMULACIÓN</h1>
+                <div class="modulo-contenedor">
+                    <h2>5 MODELOS ESTOCÁSTICOS ANTIFRAUDE</h2>
+                    <p>> Consola receptora de métricas de simulación (Numpy/Pandas)...</p>
+
+                    <div class="terminal-output">
+                        > RESULTADOS DE SIMULACIÓN HISTÓRICA:<br><br>
+                        [1] MONTE CARLO: Riesgo extremo (>1,000€) = 0.04%<br>
+                        [2] CADENAS DE MARKOV (5 pasos): Cuentas bloqueadas = 17.74% | Seguras = 70.75%<br>
+                        [3] RANDOM WALK: Tendencia de ataques (100 días) = Nivel 8<br>
+                        [4] BOOTSTRAPPING: IC Tasa base de fraude = [0.080%, 0.300%]<br>
+                        [5] EVENTOS DISCRETOS: Alertas pendientes en cola (24h) = 0
+                    </div>
+
+                    <p class="alerta-fraude">CONCLUSIÓN WFM: El modelo de Eventos Discretos confirma que la capacidad actual de procesamiento absorbe la demanda entrante, previniendo cuellos de botella operativos.</p>
+                    
+                    <br><h2>SIMULADOR MARKOV (TIEMPO REAL)</h2>
+                    <p>> Ejecutar transición de estados para una cuenta detectada como sospechosa.</p>
+                    
+                    <button class="nav-btn" style="margin-top: 15px;" onclick="ejecutarMarkovJS()">INICIAR SIMULACIÓN JS</button>
+                    
+                    <div id="resultado-m7-js" class="terminal-output" style="display: none; margin-top: 20px;">
+                        <!-- Aquí se inyectará la simulación -->
+                    </div>
+                </div>
+            </section> 
+            <!-- Sección de Contexto WFM -->
+            <section id="wfm" class="seccion-oculta">
+                <h1 class="titulo-retro">INTERLUDIO: WORKFORCE MANAGEMENT</h1>
+                <div class="modulo-contenedor">
+                    <h2>¿QUÉ HACE UN SCHEDULING SPECIALIST?</h2>
+                    
+                    <p>> El puente vital entre la predicción algorítmica y la ejecución humana...</p>
+                    
+                    <div class="terminal-output">
+                        > CARGANDO PERFIL DE ROL: SCHEDULING SPECIALIST (WFM)<br>
+                        > MISIÓN: Cuadrar la curva de demanda (alertas) con la curva de oferta (agentes).<br><br>
+                        
+                        [1] FORECASTING: Predecir matemáticamente cuántas transacciones sospechosas ingresarán por intervalo usando datos históricos.<br>
+                        [2] CAPACITY PLANNING: Calcular el "Headcount" exacto; cuántos analistas se necesitan conectados para revisar alertas sin violar los tiempos de servicio (SLA).<br>
+                        [3] SCHEDULING: Distribuir horarios, descansos y almuerzos para cubrir de forma perfecta los picos operativos.<br>
+                        [4] REAL-TIME: Ajustar la estrategia en vivo si los modelos estocásticos fallan o si hay una caída del sistema.
+                    </div>
+
+                    <p class="alerta-fraude">JUSTIFICACIÓN DE NEGOCIO: Un modelo de Machine Learning que detecta 10,000 fraudes es inútil si el banco solo tiene personal para revisar 500. El departamento de WFM asegura que los cálculos matemáticos (M10 y M11) se conviertan en operaciones reales y dinero salvado.</p>
+                </div>
+            </section>
+            <!-- Sección Módulo 10 y 11 -->
+            <section id="m10" class="seccion-oculta">
+                <h1 class="titulo-retro">M10 & M11: OPTIMIZACIÓN Y WFM (Workforce Management)</h1>
+                <div class="modulo-contenedor">
+                    <h2>M10: OPTIMIZACIÓN NO LINEAL, ENTERA Y ESTOCÁSTICA</h2>
+                    <div class="terminal-output">
+                        > CALCULANDO CAPACITY PLANNING Y UMBRALES...<br><br>
+                        [1] NO LINEAL: Umbral óptimo de probabilidad = 0.12 (Maximiza ganancia).<br>
+                        [2] ENTERA: Volumen base (4,350 alertas) = 6 agentes de revisión.<br>
+                        [3] ESTOCÁSTICA: Cobertura del 95% de variabilidad = 8 agentes de revisión.
+                    </div>
+                    <p>> <strong>Decisión operativa:</strong> Se aprueba presupuesto para 8 plazas (headcount), absorbiendo el riesgo de picos transaccionales.</p>
+
+                    <br><h2>M11: OPTIMIZACIÓN MULTIOBJETIVO (FRONTERA DE PARETO)</h2>
+                    <div class="terminal-output">
+                        > EVALUANDO TRADE-OFF: DETECCIÓN VS. FRICCIÓN DE CLIENTES...<br><br>
+                        [A] Umbral 0.2 -> Detección: 85.3% | Falsos Positivos: 410 clientes afectados.<br>
+                        [B] Umbral 0.5 -> Detección: 22.6% | Falsos Positivos: 45 clientes afectados.<br>
+                        [C] Umbral 0.8 -> Detección: 0.3% | Falsos Positivos: 1 cliente afectado.
+                    </div>
+                    <p class="alerta-fraude">CONCLUSIÓN GERENCIAL: Es matemáticamente imposible maximizar la detección sin penalizar a clientes legítimos. El banco debe elegir su tolerancia al riesgo sobre la Frontera de Pareto.</p>
                 </div>
             </section>
         </main>
